@@ -1,0 +1,82 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjsxt.mapper.EmployeeMapper">
+    <insert id="addEmp">
+        insert into employee values(
+        #{empId},
+        #{password},
+        #{deptno},
+        #{posid},
+        #{mgrId},
+        #{realName},
+        #{sex},
+        #{birthDate},
+        #{hireDate},
+        #{leaveDate},
+        #{onDuty},
+        #{empType},
+        #{phone},
+        #{qq},
+        #{emerContactPerson},
+        #{idCard}
+        )
+    </insert>
+    
+    <select id="findAllEmp" resultType="employee">
+        select e.*,d.deptname,p.pname,e1.realname as mgrName from employee e LEFT JOIN dept d on e.deptno = d.deptno
+        LEFT JOIN position p on e.posid = p.posid LEFT JOIN employee e1 on e.mgrid = e1.empid
+                <where>
+            <if test="empid != null and empid != ''">
+            <bind name="em" value="'%'+empid+'%'"/>
+            and e.empid like #{em}
+            </if>
+            <if test="deptno != null and deptno !=''">
+                and d.deptno = #{deptno}
+            </if>
+            <if test="onduty != null and onduty != ''">
+                and e.onduty = #{onduty}
+            </if>
+            <if test="hiredate != null and hiredate != ''">
+                and e.hiredate = #{hiredate}
+            </if>
+        </where>
+    </select>
+
+
+    <update id="updateEmp">
+        update employee
+        set password = #{password},
+         deptno = #{deptno},
+         posid = #{posid},
+         mgrId = #{mgrId},
+         realName = #{realName},
+         sex = #{sex},
+         birthDate = #{birthDate},
+         hireDate = #{hireDate},
+         leaveDate = #{leaveDate},
+         onDuty = #{onDuty},
+         empType = #{empType},
+         phone = #{phone},
+         qq = #{qq},
+         emerContactPerson = #{emerContactPerson},
+         idCard = #{idCard}
+        where empId = #{empId}
+    </update>
+
+    <delete id="deleteEmp">
+        delete from employee where empid = #{empId}
+    </delete>
+
+    <select id="countEmp" resultType="java.lang.Integer">
+        select count(*) from employee
+    </select>
+    <select id="login" resultType="employee">
+        select * from employee where empid =#{empid} and password = #{password}
+    </select>
+
+    <select id="findAllMgrs" resultType="employee">
+         select * from employee where emptype='2'
+    </select>
+
+</mapper>

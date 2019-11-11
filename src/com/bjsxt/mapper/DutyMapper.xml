@@ -1,0 +1,51 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjsxt.mapper.DutyMapper">
+    <insert id="addDuty">
+        insert into duty(emprid,dtdate,signintime) values(#{emprid},#{dtdate},#{signintime})
+    </insert>
+
+    <select id="findTodyDUty" resultType="duty">
+        select * from duty
+        <where>
+            <if test="emprid != null and emprid !=''">
+                and emprid = #{emprid}
+            </if>
+            <if test="dtdate != null and dtdate != ''">
+                and dtdate = #{dtdate}
+            </if>
+        </where>
+
+    </select>
+
+    <update id="updateDuty">
+        update duty set signouttime = #{signouttime} where emprid = #{emprid} and dtdate =#{dtdate}
+    </update>
+    
+    <select id="selectAllDuty" resultType="duty">
+
+select e.realname,y.*,d.deptname from employee e
+LEFT JOIN dept d on e.deptno = d.deptno left join duty y
+on e.empid = y.emprid where dtid !='' ORDER BY dtdate desc
+    </select>
+
+    <select id="findCondition" resultType="duty">
+        select e.realname,y.*,d.deptname from employee e
+LEFT JOIN dept d on e.deptno = d.deptno left join duty y
+on e.empid = y.emprid where dtid !=''
+ <if test="emprid != null and emprid != ''">
+     <bind name="em" value="'%'+emprid+'%'"></bind>
+     and y.emprid like #{em}
+ </if>
+ <if test="deptno != null and deptno != ''">
+     and d.deptno = #{deptno}
+ </if>
+        <if test="dtdate != null and dtdate != ''">
+            and y.dtdate = #{dtdate}
+        </if>
+ ORDER BY dtdate desc
+    </select>
+
+
+</mapper>
