@@ -103,8 +103,7 @@ public class ExpenseController extends BaseController {
 //        System.out.println("empid:"+empid);
         List<Expense> expenses = expenseService.findAllExpense(empid);
         System.out.println(expenses);
-        GsonBuilder builder = new GsonBuilder().setDateFormat("yyyy-MM-dd");
-        Gson gson = builder.create();
+        Gson gson = new Gson();
         String s = gson.toJson(expenses);
         resp.getWriter().write(s);
 

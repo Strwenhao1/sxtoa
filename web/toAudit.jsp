@@ -35,7 +35,7 @@
 						console.log(msg)
 						$("#mbody").empty()
 						for (var expense in msg){
-							$("#mbody").append("\t\t\t\t\t<tr>\n" +
+							var p = "\t\t\t\t\t<tr>\n" +
 									"\t\t\t\t\t\t<td>\n" +
 									"\t\t\t\t\t\t\t<input name=\"\" type=\"checkbox\" value=\"\" />\n" +
 									"\t\t\t\t\t\t</td>\n" +
@@ -44,13 +44,28 @@
 									"\t\t\t\t\t\t<td>"+msg[expense].exptime+"</td>\n" +
 									"\t\t\t\t\t\t<td>"+msg[expense].expdesc+"</td>\n" +
 									"\t\t\t\t\t\t<td><a href=\"expenseController?method=findByCondition&expid="+msg[expense].expid+"\" class=\"tablelink\"> 查看具体报销项</a></td>\n" +
-									"\t\t\t\t\t\t<td> <a href=\"expenseImg.html\" class=\"tablelink\">查看所附图片</a></td>\n" +
-									"\t\t\t\t\t\t<td><a href=\"javascript:open('audit.html','','width=500,height=230,left=300,top=300,location=0,scrollbars=0,resizable=0')\" class=\"tablelink\">审核</a>  <a href=\"auditHistory.html\" class=\"tablelink\">查看审核记录</a></td>\n" +
-									"\t\t\t\t\t</tr>")
+									"\t\t\t\t\t\t<td> <a href=\"expenseImg.html\" class=\"tablelink\">查看所附图片</a></td>\n"
+							if (msg[expense].nextauditor=='${sessionScope.employee.empId}'&&msg[expense].status<5){
+								p+="\t\t\t\t\t\t<td><a href=\"javascript:open('audit.jsp?expid="+msg[expense].expid+"','','width=500,height=230,left=300,top=300,location=0,scrollbars=0,resizable=0')\" class=\"tablelink\">审核</a>  <a href=\"auditHistory.html\" class=\"tablelink\">查看审核记录</a></td>\n" +
+										"\t\t\t\t\t</tr>"
+							}else {
+								p+="\t\t\t\t\t\t<td><a href=\"javascript:open('audit.jsp','','width=500,height=230,left=300,top=300,location=0,scrollbars=0,resizable=0')\" class=\"tablelink\"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"auditHistory.html\" onclick='searchFor("+msg[expense].expid+")' class=\"tablelink\">查看审核记录</a></td>\n"+
+								"\t\t\t\t\t</tr>"
+
+							}
+							$("#mbody").append(p)
+
 						}
 					}
 				})
+
+
 			})
+
+			function searchFor(expid) {
+				sessionStorage.setItem("expid", expid)
+				// localStorage.setItem("expid",expid)
+			}
 		</script>
 
 	</head>

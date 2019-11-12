@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjsxt.mapper.AuditingMapper">
+    <insert id="addAuditing">
+        insert into auditing values(
+        default,#{expid},#{empid},#{result},#{auditdesc},#{time}
+        )
+    </insert>
+    <select id="selectAuditing" resultType="auditing">
+        select * from auditing a left join employee e on a.empid=e.empid  where expid = #{expid} order by e.time desc
+    </select>
+</mapper>

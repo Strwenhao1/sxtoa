@@ -16,6 +16,13 @@
                 and em.empid =#{empid}
             </if>
         </where>
-        order by e.exptime desc
+        order by e.exptime,expid desc
     </select>
+    <select id="findExpeseByExpid" resultType="expense">
+        select e.*,em.realname  from expense e LEFT JOIN employee em on e.empid=em.empid where e.expid=#{expid}
+    </select>
+
+    <update id="updateExpenseStatus">
+        update expense set nextauditor=#{nextauditor},lastresult = #{lastresult},status=#{status} where expid = #{expid}
+    </update>
 </mapper>

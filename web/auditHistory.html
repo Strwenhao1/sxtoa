@@ -24,6 +24,24 @@
 			});
 		</script>
 
+		<script type="text/javascript">
+			function search() {
+				var va = sessionStorage.getItem("expid")
+				$.ajax({
+					type:"post",
+					dataType:"json",
+					data:"expid="+va,
+					url:"auditingController?method=selectAuditing",
+					success:function (msg) {
+						console.log(msg)
+					}
+
+				})
+				// console.log(va)
+				sessionStorage.clear()
+			}
+		</script>
+
 	</head>
 
 	<body>
@@ -73,12 +91,13 @@
 						<td>请财务经理加快办理</td>
 						<td>2018-02-12 13:30:20</td>
 	
-					</tr>				
+					</tr>
+
 				</tbody>
 			</table>
 
 		</div>
-		<input name="" type="button" class="btn" value="返回" />
+		<input name="" onclick="search()" type="button" class="btn" value="返回" />
 		<script type="text/javascript">
 			$('.tablelist tbody tr:odd').addClass('odd');
 		</script>

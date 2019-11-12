@@ -83,11 +83,17 @@
 			</table>
 
 		</div>
-		<input name="" type="button" class="btn" value="返回" />
+
+		<input id="back" name="" type="button" class="btn" value="返回" />
+
 		<script type="text/javascript">
 			$('.tablelist tbody tr:odd').addClass('odd');
 		</script>
-		
+		<script>
+			$("#back").click(function () {
+
+			})
+		</script>
 	</body>
 
 </html>

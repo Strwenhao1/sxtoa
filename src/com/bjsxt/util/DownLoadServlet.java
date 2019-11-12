@@ -70,10 +70,6 @@ public class DownLoadServlet extends HttpServlet {
 
 
         resp.getWriter().write("d:/" + sdf.format(date)+".txt");
-//        System.out.println(duties);
-//        System.out.println(pi);
-//
 
-//        dutyService.findCondition()
     }
 }

@@ -10,4 +10,6 @@ public interface ExpenseService {
 
     public List<Expense> findAllExpense(String empid);
 
+    public Expense findExpeseByExpid(Integer expid);
+
 }

@@ -43,7 +43,7 @@
 									"\t\t\t\t\t\t<td>"+msg[expense].totalamount+"</td>\n" +
 									"\t\t\t\t\t\t<td>"+msg[expense].exptime+"</td>\n" +
 									"\t\t\t\t\t\t<td>"+msg[expense].expdesc+"</td>\n" +
-									"\t\t\t\t\t\t<td><a href=\"expenseDetail.html\" class=\"tablelink\"> 查看具体报销项</a></td>\n" +
+									"\t\t\t\t\t\t<td><a href=\"expenseController?method=findByCondition&expid="+msg[expense].expid+"\" class=\"tablelink\"> 查看具体报销项</a></td>\n" +
 									"\t\t\t\t\t\t<td> <a href=\"expenseImg.html\" class=\"tablelink\">查看所附图片</a></td>\n" +
 									"\t\t\t\t\t\t<td>"+msg[expense].lastresult+"</td>\n" +
 							"\t\t\t\t\t\t<td><a href=\"#\" class=\"tablelink\">查看审核记录</a> </td>\n" +
@@ -87,47 +87,47 @@
 					</tr>
 				</thead>
 				<tbody id="mbody">
-					<tr>
-						<td>
-							<input name="" type="checkbox" value="" />
-						</td>
-						<td>1</td>
-						<td>5000</td>
-						<td>2018-4-20</td>
-						<td>院校支持到武汉</td>
-						<td><a href="expenseDetail.html" class="tablelink"> 查看具体报销项</a></td>
-						<td> <a href="expenseImg.html" class="tablelink">查看所附图片</a></td>
-						<td>审核通过</td>
-						<td><a href="#" class="tablelink">查看审核记录</a> </td>
-					</tr>
+<%--					<tr>--%>
+<%--						<td>--%>
+<%--							<input name="" type="checkbox" value="" />--%>
+<%--						</td>--%>
+<%--						<td>1</td>--%>
+<%--						<td>5000</td>--%>
+<%--						<td>2018-4-20</td>--%>
+<%--						<td>院校支持到武汉</td>--%>
+<%--						<td><a href="expenseDetail.html" class="tablelink"> 查看具体报销项</a></td>--%>
+<%--						<td> <a href="expenseImg.html" class="tablelink">查看所附图片</a></td>--%>
+<%--						<td>审核通过</td>--%>
+<%--						<td><a href="#" class="tablelink">查看审核记录</a> </td>--%>
+<%--					</tr>--%>
 
-					<tr>
-						<td>
-							<input name="" type="checkbox" value="" />
-						</td>
-						<td>2</td>
-						<td>2000</td>
-						<td>2018-04-23</td>
-						<td>百战杯奖金</td>
-						<td><a href="expenseDetail.html" class="tablelink"> 查看具体报销项</a></td>
-						<td> <a href="expenseImg.html" class="tablelink">查看所附图片</a></td>
-						<td>审核驳回</td>
-						<td><a href="#" class="tablelink">删除</a> <a href="auditHistory.html" class="tablelink">查看审核记录</a>  </td>
-					</tr>
+<%--					<tr>--%>
+<%--						<td>--%>
+<%--							<input name="" type="checkbox" value="" />--%>
+<%--						</td>--%>
+<%--						<td>2</td>--%>
+<%--						<td>2000</td>--%>
+<%--						<td>2018-04-23</td>--%>
+<%--						<td>百战杯奖金</td>--%>
+<%--						<td><a href="expenseDetail.html" class="tablelink"> 查看具体报销项</a></td>--%>
+<%--						<td> <a href="expenseImg.html" class="tablelink">查看所附图片</a></td>--%>
+<%--						<td>审核驳回</td>--%>
+<%--						<td><a href="#" class="tablelink">删除</a> <a href="auditHistory.html" class="tablelink">查看审核记录</a>  </td>--%>
+<%--					</tr>--%>
 
-					<tr>
-						<td>
-							<input name="" type="checkbox" value="" />
-						</td>
-						<td>3</td>
-						<td>8000</td>
-						<td>2018-4-25</td>
-						<td>4月份水费支出</td>
-						<td><a href="expenseDetail.html" class="tablelink"> 查看具体报销项</a></td>
-						<td> <a href="expenseImg.html" class="tablelink">查看所附图片</a></td>
-						<td> 未审核</td>
-						<td><a href="#" class="tablelink">删除</a></td>
-					</tr>
+<%--					<tr>--%>
+<%--						<td>--%>
+<%--							<input name="" type="checkbox" value="" />--%>
+<%--						</td>--%>
+<%--						<td>3</td>--%>
+<%--						<td>8000</td>--%>
+<%--						<td>2018-4-25</td>--%>
+<%--						<td>4月份水费支出</td>--%>
+<%--						<td><a href="expenseDetail.html" class="tablelink"> 查看具体报销项</a></td>--%>
+<%--						<td> <a href="expenseImg.html" class="tablelink">查看所附图片</a></td>--%>
+<%--						<td> 未审核</td>--%>
+<%--						<td><a href="#" class="tablelink">删除</a></td>--%>
+<%--					</tr>--%>
 				</tbody>
 			</table>
  			<div class="pagin">

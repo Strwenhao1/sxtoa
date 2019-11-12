@@ -48,7 +48,7 @@
 
     <ul>
     <li><input name="empid" type="text" class="loginuser" value="${msg}" onclick="JavaScript:this.value=''"/></li>
-    <li><input name="password" type="password" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/></li>
+    <li><input name="password" type="password" class="loginpwd" value="123" onclick="JavaScript:this.value=''"/></li>
     <li class="yzm">
     <span><input name="yzm" type="text" value="验证码" /></span><cite>
         <img id="pic" src="random.jpg" onclick="changePic()" />

@@ -10,5 +10,8 @@ public interface ExpenseMapper {
 
     public List<Expense> findAllExpense(@Param("empid") String empid);
 
+    public Expense findExpeseByExpid(@Param("expid") Integer expid);
+
+    public int updateExpenseStatus(Expense expense);
 
 }

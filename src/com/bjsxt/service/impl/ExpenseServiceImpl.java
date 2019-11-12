@@ -37,4 +37,14 @@ public class ExpenseServiceImpl implements ExpenseService {
 
         return allExpense;
     }
+
+
+    @Override
+    public Expense findExpeseByExpid(Integer expid) {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        ExpenseMapper mapper = sqlSession.getMapper(ExpenseMapper.class);
+        Expense expeseByExpid = mapper.findExpeseByExpid(expid);
+
+        return expeseByExpid;
+    }
 }
