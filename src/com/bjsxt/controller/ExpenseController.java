@@ -83,10 +83,20 @@ public class ExpenseController extends BaseController {
     }
 
     protected void findAllExpense(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String empid = ((Employee) req.getSession().getAttribute("employee")).getEmpId();
+
         List<Expense> expenses = expenseService.findAllExpense("");
+        List<Expense> exp = new ArrayList<>();
+        for (Expense esp : expenses){
+            if (esp.getNextauditor().equals(empid)&&!esp.getStatus().equals("5")){
+                System.out.println("esp.getStatus().equals(5):"+!esp.getStatus().equals("5"));
+                exp.add(esp);
+            }
+        }
+
         GsonBuilder builder = new GsonBuilder().setDateFormat("yyyy-MM-dd");
         Gson gson = builder.create();
-        String s = gson.toJson(expenses);
+        String s = gson.toJson(exp);
         resp.getWriter().write(s);
 //        System.out.println(allExpense);
     }
@@ -103,9 +113,11 @@ public class ExpenseController extends BaseController {
 //        System.out.println("empid:"+empid);
         List<Expense> expenses = expenseService.findAllExpense(empid);
         System.out.println(expenses);
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+//        Gson gson = new Gson();
         String s = gson.toJson(expenses);
         resp.getWriter().write(s);
-
     }
+
+
 }

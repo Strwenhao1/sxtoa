@@ -1,0 +1,26 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjsxt.mapper.IncomeMapper">
+    <insert id="addIncome">
+        insert into income values(null,#{amount},#{icdate},#{ictype},#{indesc},#{userid})
+    </insert>
+
+    <select id="findByCondition" resultType="income">
+        select * from income i left join employee e on i.userid = e.empid
+        <where>
+            <if test="firsttime !=null and  firsttime !='' ">
+                and icdate &gt;= #{firsttime}
+            </if>
+            <if test="lasttime != null and lasttime !=''">
+                and icdate &lt;= #{lasttime}
+            </if>
+            <if test="ictype != null and ictype != ''">
+                and ictype = #{ictype}
+            </if>
+        </where>
+    </select>
+    <select id="findData" resultType="echarsdata">
+        select sum(amount) as amount,ictype from income group by ictype
+    </select>
+</mapper>

@@ -96,7 +96,7 @@
 						<th>总备注信息</th>
 						<th>查看具体报销项</th>
 						<th>查看所附图片</th>
-						<th>审核</th>
+						<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;审核</th>
 					</tr>
 				</thead>
 				<tbody id="mbody">

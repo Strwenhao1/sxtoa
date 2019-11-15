@@ -10,6 +10,19 @@ import java.lang.reflect.Method;
 public class BaseController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        req.setCharacterEncoding("utf-8");
+        //设置响应编码格式
+        resp.setContentType("text/html;charset=utf-8");
+
+        resp.setHeader("Access-Control-Allow-Origin", req.getHeader("Origin"));
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
+        resp.setHeader("Access-Control-Allow-Headers",
+                "*");
+        resp.setHeader("Access-Control-Allow-Methods","GET,POST,PUT,DELETE");
+
+
+
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=utf-8");

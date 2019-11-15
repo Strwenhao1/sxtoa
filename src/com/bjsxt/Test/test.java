@@ -3,6 +3,7 @@ package com.bjsxt.Test;
 import com.bjsxt.entity.Dept;
 import com.bjsxt.entity.Duty;
 import com.bjsxt.entity.Expenseitem;
+import com.bjsxt.mapper.AuditingMapper;
 import com.bjsxt.service.DutyService;
 import com.bjsxt.service.impl.DutyServiceImpl;
 import com.bjsxt.service.impl.ExpenseItemServiceImpl;
@@ -55,10 +56,12 @@ public class test {
 ////        String s = date.toLocaleString();
 //        System.out.println(sdf.format(date));
 
-        ExpenseItemServiceImpl service = new ExpenseItemServiceImpl();
-        List<Expenseitem> byExpid = service.findByExpid(3 + "");
-        System.out.println(byExpid);
-
+//        ExpenseItemServiceImpl service = new ExpenseItemServiceImpl();
+//        List<Expenseitem> byExpid = service.findByExpid(3 + "");
+//        System.out.println(byExpid);
+        AuditingMapper mapper = SqlSessionUtil.getSqlSession().getMapper(AuditingMapper.class);
+        List<List<String>> liukaili = mapper.select("liukaili");
+        System.out.println(liukaili);
 
     }
 }

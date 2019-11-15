@@ -65,4 +65,22 @@ public class AuditingServiceImpl implements AuditingService {
         sqlSession.close();
         return auditings;
     }
+
+//    @Override
+//    public List<Auditing> selectAuditingByEmpid(String empid) {
+//        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+//        AuditingMapper mapper = sqlSession.getMapper(AuditingMapper.class);
+//        List<Auditing> auditings = mapper.selectAuditingByEmpid(empid);
+//
+//        return auditings;
+//    }
+
+    @Override
+    public List<Expense> selectAuditingByEmpid(String empid) {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        AuditingMapper mapper = sqlSession.getMapper(AuditingMapper.class);
+        List<Expense> auditings = mapper.selectAuditingByEmpid(empid);
+
+        return auditings;
+    }
 }

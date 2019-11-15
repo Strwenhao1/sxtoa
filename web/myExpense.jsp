@@ -23,6 +23,10 @@
 					$(".tip").fadeOut(100);
 				});
 			});
+			function searchFor(expid) {
+				sessionStorage.setItem("expid", expid)
+				// localStorage.setItem("expid",expid)
+			}
 		</script>
 
 
@@ -46,7 +50,7 @@
 									"\t\t\t\t\t\t<td><a href=\"expenseController?method=findByCondition&expid="+msg[expense].expid+"\" class=\"tablelink\"> 查看具体报销项</a></td>\n" +
 									"\t\t\t\t\t\t<td> <a href=\"expenseImg.html\" class=\"tablelink\">查看所附图片</a></td>\n" +
 									"\t\t\t\t\t\t<td>"+msg[expense].lastresult+"</td>\n" +
-							"\t\t\t\t\t\t<td><a href=\"#\" class=\"tablelink\">查看审核记录</a> </td>\n" +
+							"\t\t\t\t\t\t<td><a href=\"auditHistory.html\" onclick='searchFor("+msg[expense].expid+")' class=\"tablelink\">查看审核记录</a> </td>\n" +
 							"\t\t\t\t\t</tr>"
 						)
 						}

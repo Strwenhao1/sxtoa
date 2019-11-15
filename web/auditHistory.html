@@ -34,6 +34,30 @@
 					url:"auditingController?method=selectAuditing",
 					success:function (msg) {
 						console.log(msg)
+						$("#mbody").empty();
+						for (var p in msg){
+							var ii = '\t\t\t\t\t<tr>\n' +
+									'\t\t\t\t\t\t<td>\n' +
+									'\t\t\t\t\t\t\t<input name="" type="checkbox" value="" />\n' +
+									'\t\t\t\t\t\t</td>\n' +
+									'\t\t\t\t\t\t<td>'+msg[p].realname+'</td>\n'
+							if (msg[p].result==2){
+								ii+='\t\t\t\t\t\t<td>通过</td>\n'
+							}else if(msg[p].result==3){
+								ii+='\t\t\t\t\t\t<td>拒绝</td>\n'
+							}else if (msg[p].result==4){
+								ii+='\t\t\t\t\t\t<td>打回</td>\n'
+
+							}
+
+
+							ii+= 	'\t\t\t\t\t\t<td>'+msg[p].auditdesc+'</td>\n' +
+									'\t\t\t\t\t\t<td>'+msg[p].time+'</td>\n' +
+									'\t\t\t\t\t\n' +
+									'\t\t\t\t\t</tr>'
+
+							$("#mbody").append(ii)
+						}
 					}
 
 				})
@@ -44,7 +68,7 @@
 
 	</head>
 
-	<body>
+	<body onload="search()">
 
 		<div class="place">
 			<span>位置：</span>
@@ -70,34 +94,14 @@
 						<th>审核时间</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<input name="" type="checkbox" value="" />
-						</td>
-						<td>刘凯立</td>
-						<td>通过</td>
-						<td>请高总审核</td>
-						<td>2018-02-12 11:23:45</td>
-					
-					</tr>
+				<tbody id="mbody">
 
-					<tr>
-						<td>
-							<input name="" type="checkbox" value="" />
-						</td>
-						<td>高琪</td>
-						<td>通过</td>
-						<td>请财务经理加快办理</td>
-						<td>2018-02-12 13:30:20</td>
-	
-					</tr>
 
 				</tbody>
 			</table>
 
 		</div>
-		<input name="" onclick="search()" type="button" class="btn" value="返回" />
+		<input name="" onclick="javascript:history.back(-1)" type="button" class="btn" value="返回" />
 		<script type="text/javascript">
 			$('.tablelist tbody tr:odd').addClass('odd');
 		</script>

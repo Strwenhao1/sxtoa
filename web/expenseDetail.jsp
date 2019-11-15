@@ -84,7 +84,7 @@
 
 		</div>
 
-		<input id="back" name="" type="button" class="btn" value="返回" />
+		<input id="back" name="" onclick="javascript:history.back(-1)" type="button" class="btn" value="返回" />
 
 		<script type="text/javascript">
 			$('.tablelist tbody tr:odd').addClass('odd');

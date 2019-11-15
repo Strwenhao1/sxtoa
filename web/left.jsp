@@ -89,7 +89,7 @@
 			<dd>
 				<div class="title"><span><img src="images/leftico03.png" /></span>收支管理</div>
 				<ul class="menuson">
-					<li><cite></cite><a href="incomeAdd.jsp" target="rightFrame">添加收入</a><i></i></li>
+					<li><cite></cite><a href="incomeController?method=findAllDept" target="rightFrame">添加收入</a><i></i></li>
 					<li><cite></cite><a href="incomeList.html" target="rightFrame">查看收入</a><i></i></li>
 					<li><cite></cite><a href="incomestatis.html" target="rightFrame">收入统计</a><i></i></li>
 					<li><cite></cite><a href="expenseList.jsp" target="rightFrame">查看支出</a><i></i></li>

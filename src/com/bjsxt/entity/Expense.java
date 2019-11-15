@@ -12,6 +12,24 @@ public class Expense implements Serializable {
     private String nextauditor;
     private String lastresult;
     private String realname;
+    private Date time;
+    private Integer result;
+
+    public Integer getResult() {
+        return result;
+    }
+
+    public void setResult(Integer result) {
+        this.result = result;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
 
     public String getRealname() {
         return realname;

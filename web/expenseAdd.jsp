@@ -101,7 +101,8 @@
                 data:$("form").serialize(),
                 url: "expenseController?method=addExpense",
                 success: function (msg) {
-                   alert("添加成功")
+                        alert("添加成功")
+                    window.location.href="myExpense.jsp"
                 }
             })
         }

@@ -8,6 +8,18 @@
         )
     </insert>
     <select id="selectAuditing" resultType="auditing">
-        select * from auditing a left join employee e on a.empid=e.empid  where expid = #{expid} order by e.time desc
+        select * from auditing a left join employee e on a.empid=e.empid  where expid = #{expid} order by a.time asc
     </select>
+<!--    <select id="selectAuditingByEmpid" resultType="auditing">-->
+<!--        select * from auditing where empid =#{empid}-->
+<!--    </select>-->
+    <select id="selectAuditingByEmpid" resultType="expense">
+          select e.expid,e.exptime,e.expdesc,e.totalamount,em.realname,a.empid ,a.time,a.result
+          from expense e
+LEFT JOIN employee em on e.empid=em.empid
+left JOIN auditing a on e.expid = a.expid
+where a.empid = #{empid}
+    </select>
+
+
 </mapper>
